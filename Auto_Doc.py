@@ -158,6 +158,9 @@ def make_mkdocs_documents():
     make_mkdocs_yaml(root_dir)
     print("Building requirments.txt")
     for requirment in config.get("requirements"):
+        if not isinstance(requirment, dict):
+            print("Warning, all requirements need to be key value pairs")
+            continue
         package, version = next(iter(requirment.items()))
         update_requirements(package, version, f"{root_dir}/requirements.txt")
         
