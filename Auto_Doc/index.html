@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/Auto_Doc/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>`auto_doc.py` Module - Auto_Doc</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "`auto_doc.py` Module";
+        var mkdocs_page_input_path = "Auto_Doc.md";
+        var mkdocs_page_url = "/Auto_Doc/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Auto_Doc
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">`auto_doc.py` Module</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chat_completionuserstr-systemstr-modelstrgpt-35-turbo-temperaturenone-max_tokensnone-openaichatcompletioncreate">chat_completion(user:str, system:str, model:str="gpt-3.5-turbo", temperature=None, max_tokens=None)-&gt;openai.ChatCompletion.create:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs">Inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#output">Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#folder_structurepathstr-dict">folder_structure(path:str) -&gt; dict:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_1">Inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#output_1">Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#write_md_documentationcode-str-str">write_md_documentation(code: str) -&gt; str:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_2">Inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#output_2">Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make_dirpath">make_dir(path)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_3">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ignore_checkspath_string">ignore_checks(path_string)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_4">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make_save_folderfolderstr-root_dirstr-docs_pathstr-path">make_save_folder(folder:str, root_dir:str, docs_path:str) -&gt; Path</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_5">Inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#output_3">Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_file_documentationfileslist-save_pathpath-none">get_file_documentation(files:list, save_path:Path) -&gt; None:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_6">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_markdownsource_folder_dirdir-save_folderpath-root_docstr-docs_pathstr">get_markdown(source_folder_dir:dir, save_folder:Path, root_doc:str, docs_path:str):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_7">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make_mkdocs_yamlroot_dirstr-none">make_mkdocs_yaml(root_dir:str) -&gt; None:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_8">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#update_requirementsrequirement-str-version-str-file_path-str-requirementstxt-none">update_requirements(requirement: str, version: str, file_path: str = "requirements.txt")-&gt;None:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inputs_9">Inputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make_mkdocs_documents">make_mkdocs_documents():</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Auto_Doc</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>`auto_doc.py` Module</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="auto_docpy-module"><code>auto_doc.py</code> Module<a class="headerlink" href="#auto_docpy-module" title="Permanent link">&para;</a></h1>
+<p>The <code>auto_doc</code> module is a Python code export optimised for auto generating documentation in <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>OpenAI, YAML, os, pathlib, dotenv and re.</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="chat_completionuserstr-systemstr-modelstrgpt-35-turbo-temperaturenone-max_tokensnone-openaichatcompletioncreate"><code>chat_completion(user:str, system:str, model:str="gpt-3.5-turbo", temperature=None, max_tokens=None)-&gt;openai.ChatCompletion.create:</code><a class="headerlink" href="#chat_completionuserstr-systemstr-modelstrgpt-35-turbo-temperaturenone-max_tokensnone-openaichatcompletioncreate" title="Permanent link">&para;</a></h3>
+<p>Generates chat completions using Open AI's Chat model API. </p>
+<h4 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>user:str</code>: The user's input to generate a response.</li>
+<li><code>system:str</code>: The response provided by the Chat model API.</li>
+<li><code>model:str</code>: The name of the model to use for generating completions. The first time you use a new model, OpenAI will cache the model to your computer, so it may take a short amount of extra time to generate the first completion. Defaults to "gpt-3.5-turbo".</li>
+<li><code>temperature=None</code>: What sampling temperature to use. Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.</li>
+<li><code>max_tokens=None</code>: The maximum number of tokens(common sequences of characters found in text) to generate in the completion. If both duration and max_tokens are set, the API will return whichever response is generated first. </li>
+</ul>
+<h4 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h4>
+<p>OpenAI ChatCompletion.create object.</p>
+<h3 id="folder_structurepathstr-dict"><code>folder_structure(path:str) -&gt; dict:</code><a class="headerlink" href="#folder_structurepathstr-dict" title="Permanent link">&para;</a></h3>
+<p>Returns a dictionary of the file and folder structure from the folders.</p>
+<h4 id="inputs_1">Inputs<a class="headerlink" href="#inputs_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>path:str</code>: The path to the folder.</li>
+</ul>
+<h4 id="output_1">Output<a class="headerlink" href="#output_1" title="Permanent link">&para;</a></h4>
+<p>Dictionary of the file and folder structure.</p>
+<h3 id="write_md_documentationcode-str-str"><code>write_md_documentation(code: str) -&gt; str:</code><a class="headerlink" href="#write_md_documentationcode-str-str" title="Permanent link">&para;</a></h3>
+<p>Returns a string of markdown format from a given python code.</p>
+<h4 id="inputs_2">Inputs<a class="headerlink" href="#inputs_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>code: str</code>: The python code to generate the documentation for.</li>
+</ul>
+<h4 id="output_2">Output<a class="headerlink" href="#output_2" title="Permanent link">&para;</a></h4>
+<p>Returns a string of markdown format.</p>
+<h3 id="make_dirpath"><code>make_dir(path)</code><a class="headerlink" href="#make_dirpath" title="Permanent link">&para;</a></h3>
+<p>Method creates a directory.</p>
+<h4 id="inputs_3">Inputs<a class="headerlink" href="#inputs_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>path:str</code>: The path to create the directory in.</li>
+</ul>
+<h3 id="ignore_checkspath_string"><code>ignore_checks(path_string)</code><a class="headerlink" href="#ignore_checkspath_string" title="Permanent link">&para;</a></h3>
+<p>Method checks if the path_string regex can be ignored.</p>
+<h4 id="inputs_4">Inputs<a class="headerlink" href="#inputs_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>path_string:str</code>: The path of the string value to check.</li>
+</ul>
+<h3 id="make_save_folderfolderstr-root_dirstr-docs_pathstr-path"><code>make_save_folder(folder:str, root_dir:str, docs_path:str) -&gt; Path</code><a class="headerlink" href="#make_save_folderfolderstr-root_dirstr-docs_pathstr-path" title="Permanent link">&para;</a></h3>
+<p>Returns Path Object.</p>
+<h4 id="inputs_5">Inputs<a class="headerlink" href="#inputs_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>folder:str</code>: The name of the folder.</li>
+<li><code>root_dir:str</code>: The root directory.</li>
+<li><code>docs_path:str</code>: Path in the document directory.</li>
+</ul>
+<h4 id="output_3">Output<a class="headerlink" href="#output_3" title="Permanent link">&para;</a></h4>
+<p>Returns Path Object.</p>
+<h3 id="get_file_documentationfileslist-save_pathpath-none"><code>get_file_documentation(files:list, save_path:Path) -&gt; None:</code><a class="headerlink" href="#get_file_documentationfileslist-save_pathpath-none" title="Permanent link">&para;</a></h3>
+<p>Method to create an MD file for the given file.</p>
+<h4 id="inputs_6">Inputs<a class="headerlink" href="#inputs_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>files:list</code>: The files to create documentation for.</li>
+<li><code>save_path:Path</code>: The path to the directory to save MD files in.</li>
+</ul>
+<h3 id="get_markdownsource_folder_dirdir-save_folderpath-root_docstr-docs_pathstr"><code>get_markdown(source_folder_dir:dir, save_folder:Path, root_doc:str, docs_path:str):</code><a class="headerlink" href="#get_markdownsource_folder_dirdir-save_folderpath-root_docstr-docs_pathstr" title="Permanent link">&para;</a></h3>
+<p>Method to generate markdown and access nested directories.</p>
+<h4 id="inputs_7">Inputs<a class="headerlink" href="#inputs_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>source_folder_dir:dir</code>: The directory to create documentation for.</li>
+<li><code>save_folder:Path</code>: The path to the directory to save MD files in.</li>
+<li><code>root_doc:str</code>: The path to the root directory.</li>
+<li><code>docs_path:str</code>: The folder structure and paths.</li>
+</ul>
+<h3 id="make_mkdocs_yamlroot_dirstr-none"><code>make_mkdocs_yaml(root_dir:str) -&gt; None:</code><a class="headerlink" href="#make_mkdocs_yamlroot_dirstr-none" title="Permanent link">&para;</a></h3>
+<p>Generates mkdocs.yml.</p>
+<h4 id="inputs_8">Inputs<a class="headerlink" href="#inputs_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>root_dir:str</code>: The root directory.</li>
+</ul>
+<h3 id="update_requirementsrequirement-str-version-str-file_path-str-requirementstxt-none"><code>update_requirements(requirement: str, version: str, file_path: str = "requirements.txt")-&gt;None:</code><a class="headerlink" href="#update_requirementsrequirement-str-version-str-file_path-str-requirementstxt-none" title="Permanent link">&para;</a></h3>
+<p>Updates versions in requirements.txt.</p>
+<h4 id="inputs_9">Inputs<a class="headerlink" href="#inputs_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>requirement:str</code>: The required package.</li>
+<li><code>version</code>: The version of the package.</li>
+<li><code>file_path:str = requirements.txt</code>: The file path for the <code>requirements.txt</code> file.</li>
+</ul>
+<h3 id="make_mkdocs_documents"><code>make_mkdocs_documents():</code><a class="headerlink" href="#make_mkdocs_documents" title="Permanent link">&para;</a></h3>
+<p>Generates the documentation.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
