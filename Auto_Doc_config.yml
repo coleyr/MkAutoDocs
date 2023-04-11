@@ -1,0 +1,34 @@
+docs_path: ./docs
+root_dir: ./
+source_to_document:
+ - ./
+requirements:
+  - mkdocs: 1.4.2
+  - pymdown-extensions: 9.11
+ignore_folders:
+ - .+\.git
+ - \.pytest
+ - Include
+ - Lib
+ - Scripts
+ - __.*__
+ - ^(?!.*\.py$).*
+ignore_files:
+ - __.*__
+ - ^(?!.*\.py$).*
+use_state: True
+mkdocs:
+  site_name: Auto_Doc
+  site_description: A brief description of my site
+  site_url: https://example.com/
+
+  theme: 
+    name: readthedocs
+
+  markdown_extensions:
+    - pymdownx.details
+    - toc:
+        permalink: true
+
+  plugins:
+    - search
