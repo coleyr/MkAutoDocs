@@ -33,7 +33,7 @@ Usage
 
 
 ```
-makefileCopy code`OPENAI_API_KEY=<your-api-key>`
+`OPENAI_API_KEY=<your-api-key>`
 ```
 3. Install the required dependencies using the following command:
 
@@ -48,13 +48,13 @@ Copy code`pip install -r requirements.txt`
 
 
 ```
-Copy code`python generate_docs.py`
+`python Auto_Docs.py`
 ```
 
 
  This will use the GPT-3.5 language model to generate documentation for
  your codebase and output the generated documentation as Markdown files
- in the `docs` directory.
+ in the configured `docs` directory.
 6. Use a static site generator like
  [MkDocs](https://www.mkdocs.org/) to turn the
  generated documentation into a "doc as code" site.
