@@ -1,0 +1,11 @@
+site_name: Auto_Doc
+site_description: A brief description of my site
+site_url: https://example.com/
+theme:
+  name: readthedocs
+markdown_extensions:
+- pymdownx.details
+- toc:
+    permalink: true
+plugins:
+- search
