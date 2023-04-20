@@ -1,7 +1,7 @@
 docs_path: ./docs
-root_dir: ./
+root_dir: var/opt/myApp
 source_to_document:
- - ./
+ - abs or rel path to code directory you want to parse EX- var/opt/myApp/code
 requirements:
   - mkdocs: 1.4.2
   - pymdown-extensions: 9.11
@@ -10,17 +10,20 @@ ignore_folders:
  - \.pytest
  - Include
  - Lib
+ - img
  - Scripts
+ - docs
  - __.*__
- - ^(?!.*\.py$).*
 ignore_files:
  - __.*__
- - ^(?!.*\.py$).*
+ - utils.py
+ - ^(?!.*\.py$).* #Only python files
 use_state: True
+empty_text: "# Empty File"
 mkdocs:
-  site_name: Auto_Doc
-  site_description: A brief description of my site
-  site_url: https://example.com/
+  site_name: Auto-GPT
+  site_description: The coolest thing you have seen this week
+  site_url: example.com
 
   theme: 
     name: readthedocs

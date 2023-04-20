@@ -47,14 +47,23 @@ def folder_structure(path:str) -> dict:
 
 def write_md_documentation(code: str) -> str:
     system = """You are a helpful documentation generation bot, you take in code and return a string value a string of MDTest formatted markdown with details about the code with examples"""
+    if not code:
+        return empty_text
     result = chat_completion(code, system)
     return result.choices[0].message["content"]
 
-def readme_md_summarization(code: str) -> str:
-    system = """You are a helpful documentation generation bot, you take in a README.md markdown file and return a summary page for a doc as code site in markdown format, create a title and organize the page so it is flows well and is pretty."""
-    result = chat_completion(code, system)
-    return result.choices[0].message["content"]
-
+def readme_md_summarization(code: str, chop:int=1) -> str:
+    try:
+        system = """You are a helpful documentation generation bot, you take in a README.md markdown file and return a summary page for a doc as code site in markdown format, create a title and organize the page so it is flows well and is pretty."""
+        result = chat_completion(code[:int(len(code)/chop)], system)
+        return result.choices[0].message["content"]
+    except KeyboardInterrupt as e:
+        print(e)
+        exit()
+    except openai.error.InvalidRequestError as e:
+        print(e)
+        return readme_md_summarization(code, chop+1)
+        
 def make_dir(path):
     print("Running mkdir")
     p = Path(path)
@@ -88,9 +97,16 @@ def make_index(root_doc:str, docs_path:str, build_doc_function:Callable=readme_m
         index_path.write_text("", 'utf-8')
         print('No readme and no index.md, creating a blank index.md')
         return
-    text = Path(readme_path).read_text()
+    text = Path(readme_path).read_text('utf-8')
     print(f"Building index from README.md: {readme_path}")
-    index_path.write_text(build_doc_function(text), 'utf-8')
+    try:
+        index_path.write_text(build_doc_function(text), 'utf-8')
+    except KeyboardInterrupt as e:
+        print(e)
+        exit()
+    except openai.error.InvalidRequestError as e:
+        print(e)
+
     
 def get_file_documentation(files:list, save_path:Path, build_doc_function:Callable=write_md_documentation)-> None:
     make_dir(save_path)
@@ -102,9 +118,15 @@ def get_file_documentation(files:list, save_path:Path, build_doc_function:Callab
         if doc_file_path.as_posix() in already_parsed:
             print(f"File {file_name}.md already generated, turn off state to regenerate all files.")
             continue
-        text = Path(file).read_text()
+        text = Path(file).read_text('utf-8')
         print(f"Getting documentation for file {doc_file_path}")
-        doc_file_path.write_text(build_doc_function(text), 'utf-8')
+        try:
+            doc_file_path.write_text(build_doc_function(text), 'utf-8')
+        except KeyboardInterrupt as e:
+            print(e)
+            exit()
+        except openai.error.InvalidRequestError as e:
+            print(e)
         
 def get_markdown(source_folder_dir:dir, save_folder:Path, root_doc:str, docs_path:str):
     files = source_folder_dir.get("files", [])
@@ -163,7 +185,8 @@ def update_requirements(requirement: str, version: str, file_path: str = "requir
 
 def make_mkdocs_documents():
     print("Loading config")
-    root_dir, docs_path, source_to_document, use_state = config.get("root_dir"), config.get("docs_path"), config.get("source_to_document"), config.get("use_state")
+    root_dir, docs_path, source_to_document, use_state, empty_text = config.get("root_dir"), config.get("docs_path"), config.get("source_to_document"), config.get("use_state"), config.get("empty_text", "")
+    global empty_text
     global already_parsed
     root_and_docs_path = Path(f"{root_dir}/{docs_path}")
     already_parsed = build_state(root_and_docs_path) if use_state else set()
